@@ -10,7 +10,14 @@ body,
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-size: 13px;
 }
+@media (min-width: 450px) {
+  body {
+    font-size: unset;
+  }
+}
+
 canvas {
   height: calc(100vh - 3.5em) !important;
   width: 100%;
@@ -20,14 +27,19 @@ body {
   background: #ededed;
 }
 header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 1em;
+  padding: 1em;
   width: 100%;
   background: #333;
-  height: 3.5em;
   color: #fff;
+}
+@media (min-width: 450px) {
+  header {
+    padding: 0 1em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 3.5em;
+  }
 }
 header h1 {
   font-size: 2em;
