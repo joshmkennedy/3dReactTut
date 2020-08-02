@@ -1,5 +1,4 @@
-import * as THREE from "three";
-import React, { useState, useRef, useEffect, Suspense } from "react";
+import React, { useRef, Suspense } from "react";
 import { OrbitControls } from "drei";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { Canvas, useFrame, useLoader } from "react-three-fiber";

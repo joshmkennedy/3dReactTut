@@ -3,7 +3,7 @@ import "./App.css";
 import { OrbitControls } from "drei";
 import { Canvas, useFrame, useLoader } from "react-three-fiber";
 import { a, useSpring } from "react-spring/three";
-import { Controls, useControl } from "react-three-gui";
+
 import { TextureLoader } from "three";
 import LogoURL from "./assets/logo.png";
 import LogoBWURL from "./assets/logoDisp.png";
@@ -14,15 +14,13 @@ function Cube(props) {
   });
   const [isBig, setIsbBig] = useState(false);
   const { size } = useSpring({ size: isBig ? [2, 2, 2] : [1, 1, 1] });
-  const [isHovered, setIsHovered] = useState(false);
+
   const texture = useLoader(TextureLoader, LogoURL);
   const bumbMapTexure = useLoader(TextureLoader, LogoBWURL);
   return (
     <a.mesh
       {...props}
       onClick={() => setIsbBig((prev) => !prev)}
-      onPointerOver={() => setIsHovered(true)}
-      onPointerOut={() => setIsHovered(false)}
       scale={size}
       ref={ref}
       castShadow={true}
@@ -58,17 +56,12 @@ function Plane() {
 }
 
 function Scene() {
-  const cubeOneX = useControl("Cube One Position X", { type: "number" });
-  const cubeOneY = useControl("Cube One Position Y", { type: "number" });
-  // const rot = useControl("Cube One Rotation", {
-  //   type: "",
-  // });
   return (
     <>
       <ambientLight />
       <pointLight castShadow={true} position={[0, 3, 0]} intensity={0.5} />
       <Suspense fallback={null}>
-        <Cube rotation={[1, 1, 0.3]} position={[cubeOneX, cubeOneY, 0]} />
+        <Cube rotation={[1, 1, 0.3]} position={[0, 0, 0]} />
       </Suspense>
       <Suspense fallback={null}>
         <Cube rotation={[0.7, 0.5, 0.3]} position={[2, 2, 0]} />

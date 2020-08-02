@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, Suspense } from "react";
+import React from "react";
 import { Router, Link } from "@reach/router";
 import AppScene1 from "./AppScene1";
 import AppScene2 from "./AppScene2";
